@@ -3,29 +3,23 @@ package br.com.delanhese.triagemesaj.service;
 import br.com.delanhese.triagemesaj.model.PalavraChave;
 import br.com.delanhese.triagemesaj.model.Processo;
 import br.com.delanhese.triagemesaj.model.ProcessoClassificado;
-import com.opencsv.bean.HeaderColumnNameMappingStrategy;
-import com.opencsv.bean.StatefulBeanToCsv;
-import com.opencsv.bean.StatefulBeanToCsvBuilder;
-import com.opencsv.exceptions.CsvDataTypeMismatchException;
-import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class ArquivoService {
-
-    private List<ProcessoClassificado> listaProcClassificado = new ArrayList<ProcessoClassificado>();
+    
     private static final String ARQUIVO_TRIADO_PATH = "c:\\triagem\\arquivo-triado.csv";
 
     public ArquivoService() {
     }
 
     public void executarTriagem(List<Processo> listaProcesso, List<PalavraChave> listaPalavraChave) {
+        List<ProcessoClassificado> listaProcClassificado = new ArrayList<ProcessoClassificado>();
+        
         for (Processo processo : listaProcesso) {
             for (PalavraChave palavra : listaPalavraChave) {
                 if (processo.getTeor().contains(palavra.getParametro())) {
@@ -48,7 +42,10 @@ public class ArquivoService {
                 }
             }
         }
-
+        gravaListaNoArquivoTriado(listaProcClassificado);
+        
+    }
+    private void gravaListaNoArquivoTriado(List<ProcessoClassificado> listaProcClassificado){
         if (!listaProcClassificado.isEmpty()) {
             try {
                 Writer writer = new FileWriter(ARQUIVO_TRIADO_PATH);
@@ -64,7 +61,6 @@ public class ArquivoService {
             JOptionPane.showMessageDialog(null, "Nenhum processo foi classificado");
         }
     }
-    
     private String formataStringDeGravacaoNoArquivoClassificado(ProcessoClassificado pc){
         return pc.getNumeroProcesso()+ ";"
                             +pc.getForo() + ";"
