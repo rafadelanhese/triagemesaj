@@ -22,6 +22,14 @@ public class ArquivoController {
         this.arquivoService = new ArquivoService();
     }   
 
+    public boolean diretorioTriagemExiste(){
+       return arquivoService.diretorioTriagemExiste();
+    }
+
+    public void criarDiretorioTriagem(){
+        arquivoService.criarDiretorioTriagem();
+    }
+
     public void triarArquivo() {
         arquivoService.executarTriagem(listaProcesso, listaPalavraChave);
     }

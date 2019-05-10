@@ -18,6 +18,16 @@ public class ArquivoService {
     public ArquivoService() {
     }
 
+    public boolean diretorioTriagemExiste(){
+        File diretorioTriagem = new File("c:\\triagem");
+        return diretorioTriagem.exists();
+    }
+
+    public void criarDiretorioTriagem(){
+        File diretorioTriagem = new File("c:\\triagem");
+        diretorioTriagem.mkdirs();
+    }
+
     public void executarTriagem(List<Processo> listaProcesso, List<PalavraChave> listaPalavraChave) {
         List<ProcessoClassificado> listaProcClassificado = new ArrayList<ProcessoClassificado>();
         List<Processo> listaProcNaoClassificado = new ArrayList<Processo>();
@@ -84,7 +94,5 @@ public class ArquivoService {
         } catch (IOException io) {
             JOptionPane.showMessageDialog(null, "Erro ao gravar no arquivo de processos não classificados");
         }         
-    }
-
-    
+    }    
 }
