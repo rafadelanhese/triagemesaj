@@ -16,17 +16,7 @@ public class ArquivoService {
     private static final String ARQUIVO_NAO_TRIADO_PATH = "c:\\triagem\\processos-nao-triado.csv";
 
     public ArquivoService() {
-    }
-
-    public boolean diretorioTriagemExiste(){
-        File diretorioTriagem = new File("c:\\triagem");
-        return diretorioTriagem.exists();
-    }
-
-    public void criarDiretorioTriagem(){
-        File diretorioTriagem = new File("c:\\triagem");
-        diretorioTriagem.mkdirs();
-    }
+    }    
 
     public void executarTriagem(List<Processo> listaProcesso, List<PalavraChave> listaPalavraChave) {
         List<ProcessoClassificado> listaProcClassificado = new ArrayList<ProcessoClassificado>();

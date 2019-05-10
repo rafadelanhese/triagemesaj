@@ -12,6 +12,7 @@ import java.util.List;
 
 public class ArquivoController {
 
+    private static final File diretorioTriagem = new File("c:\\triagem");
     private ArquivoService arquivoService;
     private List<Processo> listaProcesso;
     private List<PalavraChave> listaPalavraChave;    
@@ -22,12 +23,12 @@ public class ArquivoController {
         this.arquivoService = new ArquivoService();
     }   
 
-    public static boolean diretorioTriagemExiste(){
-       return arquivoService.diretorioTriagemExiste();
+    public static boolean diretorioTriagemExiste(){        
+        return diretorioTriagem.exists();
     }
 
-    public static void criarDiretorioTriagem(){
-        arquivoService.criarDiretorioTriagem();
+    public static void criarDiretorioTriagem(){        
+        diretorioTriagem.mkdirs();
     }
 
     public void triarArquivo() {
