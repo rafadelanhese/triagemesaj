@@ -21,7 +21,7 @@ public class ArquivoService {
     public void executarTriagem(List<Processo> listaProcesso, List<PalavraChave> listaPalavraChave) {
         List<ProcessoClassificado> listaProcClassificado = new ArrayList<ProcessoClassificado>();
         List<Processo> listaProcNaoClassificado = new ArrayList<Processo>();
-        boolean classificado = false;
+        boolean classificado;
         for (Processo processo : listaProcesso) {
             for (PalavraChave palavra : listaPalavraChave) {
                 if (processo.getTeor().contains(palavra.getParametro()) && !classificado) {                    
@@ -40,7 +40,7 @@ public class ArquivoService {
                             palavra.getPrazo(),
                             palavra.getEtiqueta()));
 
-                            classificado = true;
+                            classificado = !classificado;
 
                 }
             }

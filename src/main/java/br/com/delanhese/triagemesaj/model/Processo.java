@@ -137,6 +137,17 @@ public class Processo {
         this.situacao = situacao;
     }
 
-   
-    
+    @Override
+    public String toString(){
+        return this.numeroProcesso+ ";"
+                +this.foro + ";"
+                +this.vara + ";"
+                +this.disponibilizacao + ";"
+                +this.prazoProcessual + ";"
+                +this.movimentacao + ";"
+                +this.teor + ";"
+                +this.classe + ";"
+                +this.assunto + ";"
+                +this.situacao +"\n";
+    }    
 }
