@@ -65,7 +65,7 @@ public class ArquivoService {
             Writer writer = new FileWriter(ARQUIVO_TRIADO_PATH);
             writer.write("Número do processo;Foro;Vara;Disponibilização;Prazo processual;Movimentação;Teor da intimação;Classe principal;Assunto principal;Situação;MODALIDADE;REPERCUSSÃO;PRAZO;ETIQUETA\n");
             for (ProcessoClassificado pc : listaProcClassificado) {
-                writer.write(formataStringDeGravacao(pc));
+                writer.write(pc.toString());
             }
             writer.close();
         } catch (IOException io) {
@@ -86,20 +86,5 @@ public class ArquivoService {
         }         
     }
 
-    private String formataStringDeGravacao(ProcessoClassificado pc){
-        return pc.getNumeroProcesso()+ ";"
-                            +pc.getForo() + ";"
-                            +pc.getVara()+ ";"
-                            +pc.getDisponibilizacao()+ ";"
-                            +pc.getPrazoProcessual()+ ";"
-                            +pc.getMovimentacao()+ ";"
-                            +pc.getTeor()+ ";"
-                            +pc.getClasse()+ ";"
-                            +pc.getAssunto()+ ";"
-                            +pc.getSituacao()+ ";"
-                            +pc.getModalidade()+ ";"
-                            +pc.getRepercussao()+ ";"
-                            +pc.getPrazo()+ ";"
-                            +pc.getEtiqueta()+"\n";
-    }
+    
 }

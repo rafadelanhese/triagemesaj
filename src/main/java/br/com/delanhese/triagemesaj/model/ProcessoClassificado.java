@@ -59,4 +59,22 @@ public class ProcessoClassificado extends Processo {
     public void setEtiqueta(String etiqueta) {
         this.etiqueta = etiqueta;
     }   
+
+    @Override
+    public String toString(){
+        return this.numeroProcesso+ ";"
+                +this.foro + ";"
+                +this.vara+ ";"
+                +this.disponibilizacao+ ";"
+                +this.prazoProcessual+ ";"
+                +this.movimentacao+ ";"
+                +this.teor+ ";"
+                +this.classe+ ";"
+                +this.assunto+ ";"
+                +this.situacao+ ";"
+                +this.modalidade+ ";"
+                +this.repercussao+ ";"
+                +this.prazo+ ";"
+                +this.etiqueta+"\n";
+    }
 }
