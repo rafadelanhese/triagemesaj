@@ -14,19 +14,19 @@ public class ArquivoController {
 
     private ArquivoService arquivoService;
     private List<Processo> listaProcesso;
-    private List<PalavraChave> listaPalavraChave;
-
+    private List<PalavraChave> listaPalavraChave;    
+    
     public ArquivoController(String triagem, String banco) throws FileNotFoundException {        
         this.listaProcesso = new CsvToBeanBuilder(new FileReader(triagem)).withType(Processo.class).withSkipLines(1).withSeparator(';').build().parse();
         this.listaPalavraChave = new CsvToBeanBuilder(new FileReader(banco)).withType(PalavraChave.class).withSkipLines(1).withSeparator(';').build().parse();
         this.arquivoService = new ArquivoService();
     }   
 
-    public boolean diretorioTriagemExiste(){
+    public static boolean diretorioTriagemExiste(){
        return arquivoService.diretorioTriagemExiste();
     }
 
-    public void criarDiretorioTriagem(){
+    public static void criarDiretorioTriagem(){
         arquivoService.criarDiretorioTriagem();
     }
 
