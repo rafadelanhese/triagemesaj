@@ -1,0 +1,6 @@
+br\com\delanhese\triagemesaj\model\Processo.class
+br\com\delanhese\triagemesaj\TriagemEsajMain.class
+br\com\delanhese\triagemesaj\model\ProcessoClassificado.class
+br\com\delanhese\triagemesaj\service\ArquivoService.class
+br\com\delanhese\triagemesaj\model\PalavraChave.class
+br\com\delanhese\triagemesaj\controller\ArquivoController.class

@@ -4,7 +4,6 @@ import javax.swing.JOptionPane;
 
 import br.com.delanhese.triagemesaj.controller.ArquivoController;
 import java.io.FileNotFoundException;
-import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 /**
  *
@@ -18,7 +17,8 @@ public class TriagemEsajMain {
     public static void main(String[] args) {
         if (!ArquivoController.diretorioTriagemExiste()) {
             int opcaoUsuario = JOptionPane.showConfirmDialog(null,
-                    "Diretório triagem não está criado no C: - deseja criar diretório?", JOptionPane.YES_NO_OPTION);
+                    "Diretório triagem não está criado no C: - deseja criar diretório?", "Cria Diretório",
+                    JOptionPane.YES_NO_OPTION);
 
             if (opcaoUsuario == JOptionPane.YES_OPTION) {
                 ArquivoController.criarDiretorioTriagem();
