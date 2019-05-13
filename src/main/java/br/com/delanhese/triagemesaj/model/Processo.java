@@ -1,9 +1,6 @@
 package br.com.delanhese.triagemesaj.model;
 
 import com.opencsv.bean.CsvBindByPosition;
-import com.opencsv.bean.CsvCustomBindByPosition;
-import com.opencsv.bean.CsvDate;
-import java.util.Date;
 
 /**
  *
@@ -13,38 +10,39 @@ public class Processo {
 
     @CsvBindByPosition(position = 0)
     private String numeroProcesso;
-    
+
     @CsvBindByPosition(position = 1)
     private String foro;
-    
+
     @CsvBindByPosition(position = 2)
     private String vara;
-    
+
     @CsvBindByPosition(position = 3)
     private String disponibilizacao;
-    
-    @CsvBindByPosition(position = 4)    
+
+    @CsvBindByPosition(position = 4)
     private String prazoProcessual;
-    
+
     @CsvBindByPosition(position = 5)
     private String movimentacao;
-    
+
     @CsvBindByPosition(position = 6)
     private String teor;
-    
+
     @CsvBindByPosition(position = 7)
     private String classe;
-    
+
     @CsvBindByPosition(position = 8)
     private String assunto;
-    
+
     @CsvBindByPosition(position = 9)
     private String situacao;
 
     public Processo() {
     }
 
-    public Processo(String numeroProcesso, String foro, String vara, String disponibilizacao, String prazoProcessual, String movimentacao, String teor, String classe, String assunto, String situacao) {
+    public Processo(String numeroProcesso, String foro, String vara, String disponibilizacao, String prazoProcessual,
+            String movimentacao, String teor, String classe, String assunto, String situacao) {
         this.numeroProcesso = numeroProcesso;
         this.foro = foro;
         this.vara = vara;
@@ -138,16 +136,9 @@ public class Processo {
     }
 
     @Override
-    public String toString(){
-        return this.numeroProcesso+ ";"
-                +this.foro + ";"
-                +this.vara + ";"
-                +this.disponibilizacao + ";"
-                +this.prazoProcessual + ";"
-                +this.movimentacao + ";"
-                +this.teor + ";"
-                +this.classe + ";"
-                +this.assunto + ";"
-                +this.situacao +"\n";
-    }    
+    public String toString() {
+        return this.numeroProcesso + ";" + this.foro + ";" + this.vara + ";" + this.disponibilizacao + ";"
+                + this.prazoProcessual + ";" + this.movimentacao + ";" + this.teor + ";" + this.classe + ";"
+                + this.assunto + ";" + this.situacao + "\n";
+    }
 }
